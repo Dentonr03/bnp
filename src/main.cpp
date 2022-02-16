@@ -1,7 +1,7 @@
 #include <ncurses.h>
 
 
-int main(int __argc, char** __argv) {
+int main() {
     WINDOW* game_win = initscr();
     if(!game_win) {
         return 1;
