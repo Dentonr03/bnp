@@ -1,0 +1,12 @@
+SHR_HEADERS := $(SHR_INC_DIR)/*.hpp
+SHR_SOURCES := $(SHR_SRC_DIR)/*.cpp
+SHR_OBJECTS := $(SHR_BIN_DIR)/*.o
+SHR_INCLUDES := -I$(SHR_INC_DIR)
+
+
+$(SHR_OBJECTS): $(SHR_BIN_DIR) $(SHR_HEADERS) $(SHR_SOURCES)
+	$(CXX) $(CXXFLAGS) $(SHR_INCLUDES) -c $(SHR_SOURCES)
+	mv *.o $<
+
+$(SHR_BIN_DIR): $(BIN_DIR)
+	-mkdir -p $@

@@ -1,0 +1,11 @@
+MAIN_SOURCE := $(SRC_DIR)/main.cpp
+MAIN_O := $(BIN_DIR)/main.o
+MAIN_INCLUDES := -I$(SHR_INC_DIR)
+
+
+$(MAIN_O): $(BIN_DIR) $(MAIN_SOURCE)
+	$(CXX) $(CXXFLAGS) $(MAIN_INCLUDES) -c $(MAIN_SOURCE)
+	mv *.o $<
+
+$(BNP): $(SHR_OBJECTS) $(MAIN_O)
+	$(CXX) $(CXXFLAGS) $(LD_FLAGS) $^ -o $@
