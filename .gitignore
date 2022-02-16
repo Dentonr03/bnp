@@ -1,0 +1,13 @@
+# bnp
+bin/
+bitsnpieces
+bnp
+*.o
+
+# vscode
+.vscodeCounter/
+.vscode/
+*.code-workspace
+
+# macos
+.DS_Store
