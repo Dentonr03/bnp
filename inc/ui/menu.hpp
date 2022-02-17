@@ -13,6 +13,7 @@ public:
     void set_title(const char* __title);
     const char* get_title() const;
     pos_pair get_title_pos() const;
+    bool update();
 private:
     text_pair _title;
     pos_pair _title_pos;
