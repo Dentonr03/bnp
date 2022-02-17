@@ -14,8 +14,8 @@ int main() {
     // setup
     noecho();
     Menu main_menu("Bits 'N Pieces");
-    main_menu.set_dim(getmaxx(game_win) / 2, getmaxy(game_win) / 2);
-    main_menu.set_pos(getmaxx(game_win) / 4, getmaxy(game_win) / 4);
+    main_menu.set_dim(U2LF(getmaxx(game_win)), U2LF(getmaxy(game_win)));
+    main_menu.set_pos(U4TH(getmaxx(game_win)), U4TH(getmaxy(game_win)));
     main_menu.init();
     main_menu.render();
 
