@@ -4,42 +4,23 @@
 
 
 Menu::Menu(const char* __title):
-    _menu(nullptr), _title({__title, (unsigned short) strlen(__title)}),
+    _title({__title, (unsigned short) strlen(__title)}),
     _title_pos({0, 2}), _using_title(1) {}
 
 Menu::Menu():
-    _menu(nullptr), _title({nullptr, 0}), _title_pos({0, 2}),
+    _title({nullptr, 0}), _title_pos({0, 2}),
     _using_title(0) {}
 
-bool Menu::init() {
-    this->_menu = newwin(
-        this->get_dim().h, this->get_dim().w,
-        this->get_pos().y, this->get_pos().x
-    );
-
-    if(!this->_menu) {
-        return 0;
-    }
-
-    refresh();
-    return 1;
-}
-
-void Menu::render() {
-    if(!this->_menu) {
-        return;
-    }
-
-    box(this->_menu, 0, 0);
+bool Menu::update() {
     if(this->_using_title) {
-        mvwprintw(
-            this->_menu,
-            this->_title_pos.y, (this->get_dim().w - this->_title.len) / 2,
-            this->_title.text
-        );
+        if(mvwprintw(this->_win, this->_title_pos.y,
+            (this->get_dim().w - this->_title.len) / 2, this->_title.text)
+        == -1) {
+            return 0;
+        }
     }
 
-    wrefresh(this->_menu);
+    return 1;
 }
 
 bool Menu::using_title() {

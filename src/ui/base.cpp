@@ -2,7 +2,7 @@
 
 
 Base::Base():
-    _pos({0, 0}), _dim({10, 10}) {}
+    _win(nullptr), _pos({0, 0}), _dim({10, 10}) {}
 
 void Base::set_pos(const int __x, const int __y) {
     this->_pos.x = __x;
@@ -20,4 +20,27 @@ void Base::set_dim(const int __w, const int __h) {
 
 dim_pair Base::get_dim() const {
     return this->_dim;
+}
+
+bool Base::init() {
+    this->_win = newwin(
+        this->get_dim().h, this->get_dim().w,
+        this->get_pos().y, this->get_pos().x
+    );
+
+    if(!this->_win) {
+        return 0;
+    }
+
+    refresh();
+    return 1;
+}
+
+void Base::render() {
+    if(!this->_win) {
+        return;
+    }
+
+    box(this->_win, 0, 0);
+    wrefresh(this->_win);
 }
