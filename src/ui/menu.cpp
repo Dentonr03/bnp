@@ -12,10 +12,10 @@ Menu::Menu():
     _using_title(0) {}
 
 bool Menu::update() {
+    this->_title_pos.x = (this->get_dim().w - this->_title.len) / 2;
     if(this->_using_title) {
-        if(mvwprintw(this->_win, this->_title_pos.y,
-            (this->get_dim().w - this->_title.len) / 2, this->_title.text)
-        == -1) {
+        if(mvwprintw(this->_win, this->_title_pos.y, this->_title_pos.x,
+            this->_title.text) == -1) {
             return 0;
         }
     }
