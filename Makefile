@@ -10,4 +10,5 @@ clean:
 include mk/cc.mk
 include mk/paths.mk
 include mk/shared.mk
+include mk/ui.mk
 include mk/bnp.mk

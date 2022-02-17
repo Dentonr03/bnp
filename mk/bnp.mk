@@ -7,5 +7,5 @@ $(MAIN_O): $(BIN_DIR) $(MAIN_SOURCE)
 	$(CXX) $(CXXFLAGS) $(MAIN_INCLUDES) -c $(MAIN_SOURCE)
 	mv *.o $<
 
-$(BNP): $(SHR_OBJECTS) $(MAIN_O)
+$(BNP): $(SHR_OBJECTS) $(UI_OBJECTS) $(MAIN_O)
 	$(CXX) $(CXXFLAGS) $(LD_FLAGS) $^ -o $@
