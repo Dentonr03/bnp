@@ -18,4 +18,9 @@ typedef struct {
     int h;  // height
 } dim_pair;
 
+typedef struct {
+    const char* text;   // content
+    unsigned short len; // length
+} text_pair;
+
 #endif // DEFS_HPP
