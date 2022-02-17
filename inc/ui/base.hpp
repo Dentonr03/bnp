@@ -32,5 +32,4 @@ private:
     dim_pair _dim;
 };
 
-
 #endif // BASE_HPP
